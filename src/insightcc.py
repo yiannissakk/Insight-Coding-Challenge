@@ -4,7 +4,7 @@ from datetime import datetime
 from collections import defaultdict
 
 
-def method1(filename):
+def parser(filename):
     
     #max_time is the maximum timestamp that has been processed
     max_time= ''
@@ -25,9 +25,9 @@ def method1(filename):
         for line in f:
             current_transaction = (json.loads(line))
             
-            #catch any errors, they can only occur inside method2
+            #catch any errors, they can only occur inside the new_entry method
             try:
-                [max_time,time_dict,users_dict] = method2(current_transaction, max_time, time_dict, users_dict)
+                [max_time,time_dict,users_dict] = new_entry(current_transaction, max_time, time_dict, users_dict)
                 
                 #the following dictionary will be of the form 'userX': number of other users, userX has had a transaction inside the 60 second interval of max_time
                 occ_dict = defaultdict(int)
@@ -47,7 +47,7 @@ def method1(filename):
 
     f.close()
 
-def method2(curr_trans, mx_time, time_dct, users_dct):
+def new_entry(curr_trans, mx_time, time_dct, users_dct):
     
     #first transaction processed only
     if mx_time == '':
@@ -142,4 +142,4 @@ def method2(curr_trans, mx_time, time_dct, users_dct):
             
         
     
-method1('./venmo_input/venmo-trans.txt')
+parser('./venmo_input/venmo-trans.txt')

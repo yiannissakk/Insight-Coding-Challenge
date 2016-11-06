@@ -1,12 +1,3 @@
 # Insight-Coding-Challenge
 
-My source code is written in Python 3.4.2
-    -I have already imported the following packages in the beginning of my file which I named insightcc.py.
-      
-      import json
-      
-      import statistics
-      
-      from datetime import datetime
-      
-      from collections import defaultdict
+My source code can be found under the src directory, named insightcc.py

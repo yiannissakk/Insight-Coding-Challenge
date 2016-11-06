@@ -132,7 +132,7 @@ def new_entry(curr_trans, mx_time, time_dct, users_dct):
             #the transaction is not inside the one minute mark from mx_time
             else:
                 
-                #I make the following variable assignments in order for the try statement in method1 to catch a possible error
+                #I make the following variable assignments in order for the try statement in the parser method to catch a possible error
                 actor = curr_trans['actor']
                 target = curr_trans['target']
                 created_time = curr_trans['created_time']
